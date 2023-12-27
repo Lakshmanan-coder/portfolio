@@ -48,10 +48,10 @@ export const experiencesData = [
   },
   {
     title: "Software Development Engineer -Level II",
-    location: "Vacayoo Solution - Kuala Terengganu,Malaysia (Remote and onsite)",
+    location: "Vacayoo Solution - Kuala Terengganu,Malaysia (Remote and Onsite)",
     description:
       "Evolved from leading small teams to handling client discussions, framing timelines, and collaborating with the team to deliver quality results on schedule.",
-    icon: React.createElement(FaReact),
+    icon: React.createElement(CgWorkAlt),
     date: "2023 - present",
   },
 ] as const;

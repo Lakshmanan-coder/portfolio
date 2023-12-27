@@ -8,9 +8,13 @@ import { renderAsync } from "@react-email/render";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const sendEmail = async (formData: FormData) => {
-  const senderEmail = formData.get("senderEmail");
-  const message = formData.get("message");
+interface formInfo {
+  senderEmail: string;
+  message: string;
+}
+
+export const sendEmail = async (formInfo: formInfo) => {
+  const{ senderEmail, message} = formInfo
 
   // simple server-side validation
   if (!validateString(senderEmail, 500)) {
@@ -36,7 +40,7 @@ export const sendEmail = async (formData: FormData) => {
       subject: "Message from contact form",
       reply_to: senderEmail,
       html,
-    });
+    });   
   } catch (error: unknown) {
     return {
       error: getErrorMessage(error),
