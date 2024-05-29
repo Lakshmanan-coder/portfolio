@@ -15,6 +15,24 @@ export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
+  const CalcExp = () => {
+    const startDate = new Date("2019-10-10")
+    const endDate = new Date()
+    let startYear = startDate.getFullYear();
+    let startMonth = startDate.getMonth();
+    let endYear = endDate.getFullYear();
+    let endMonth = endDate.getMonth();
+
+    let yearDifference = endYear - startYear;
+    let monthDifference = endMonth - startMonth;
+  
+    if (monthDifference < 0) {
+        yearDifference -= 1;
+        monthDifference += 12;
+    } 
+   return `${yearDifference}${monthDifference && "+"}`
+  }
+
   return (
     <section
       ref={ref}
@@ -65,7 +83,7 @@ export default function Intro() {
       >
         <span className="font-bold">Hello, I'm Lakshmanan.</span> I'm a{" "}
         <span className="font-bold">full-stack developer</span> with{" "}
-        <span className="font-bold">4 years</span> of experience. I enjoy
+        <span className="font-bold">{CalcExp()} years</span> of experience. I enjoy
         building <span className="italic">sites & apps</span>.
       </motion.h1>
 
